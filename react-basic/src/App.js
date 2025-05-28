@@ -1,20 +1,10 @@
-import EventComponent2 from "./component/EventComponent2";
-import EventComponentQ from "./component/EventComponentQ";
-import EventComponentQ2 from "./component/EventComponentQ2";
-import EventComponent from "./component/EventConponent";
+import HookEffect from "./hook/HookEffect";
 
 function App() {
-    return (
+    return(
         <>
-            {/* EvenetComponentQ2 파일로 생성 */}
-            <EventComponentQ2></EventComponentQ2>
             <hr/>
-            <EventComponent2></EventComponent2>
-            <hr/>
-            {/* EvnentComponentQ 파일로 생성 */}
-            <EventComponentQ></EventComponentQ>
-            <hr/>
-            <EventComponent></EventComponent>
+            <HookEffect></HookEffect>
         </>
     )
 }
