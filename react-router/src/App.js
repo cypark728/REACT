@@ -1,20 +1,57 @@
-import {Routes, Route} from 'react-router-dom';
-import Home from './component/Home';
-import User from './component/User';
-import Info from './component/Info';
+import axios from 'axios';
 
 function App() {
-  /*
-    1. 라우터를 사용하려면 index.js에서 BrowserRouter로 
-    2. Routes를 이용해서 경로에 대한 컴포넌트를 지정
-  */
-  return (
-    <Routes>
-      <Route path='/' element={<Home/>}></Route>
-      <Route path='/user' element={<User/>}></Route>
-      <Route path='/info' element={<Info/>}></Route>
-    </Routes>
-  );
+    //엑시오스 설치
+    //npm install axios
+
+
+    const handleClick = async() => {
+        // axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/hi.json')
+        // .then( response => {
+        //     console.log(response);
+        //     console.log(response.data);
+        // })
+
+        //콜백지옥
+        //이것은 비동기니까~ ㅎㅎ
+        // axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/hi.json')
+        // .then( response => {
+        //     console.log(response.data);
+        //     console.log(1);
+        //     axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/hello.json')
+        //     .then( response => {
+        //         console.log(response.data);
+        //         console.log(2);
+        //         axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/by.json')
+        //         .then( response => {
+        //             console.log(response.data);
+        //             console.log(3);
+        //         })
+        //     })
+        // })
+
+
+        //규칙3 - 리턴이 프로미스라면 await을 붙이고 then을 생략할 수 있음.
+        //장점 - 코드의 간결성
+        //정점 - 동기적으로 변하게 됩니다.
+        const response = await axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/hi.json')
+        console.log(response);
+
+        const response2 = await axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/hello.json')
+        console.log(response2);
+
+        const response3 = await axios.get('https://raw.githubusercontent.com/yopy0817/data_example/master/by.json')
+        console.log(response3);
+
+    }
+
+    return (
+        <>
+            <h3>엑시오스 사용하기</h3>
+
+            <button type="button" onClick={handleClick}>엑시오스로 데이터가져오기</button>
+        </>
+    )
 }
 
 export default App;
