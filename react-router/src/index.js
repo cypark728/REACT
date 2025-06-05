@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {store} from './redux/AppStore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App />
+    {/* 리덕스를 사용할 하위 객체에 Provider로 감싸줌(구독) */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </BrowserRouter>
 );
 
